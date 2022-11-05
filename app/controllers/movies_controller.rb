@@ -38,8 +38,8 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-
-
+  #### Part 1 ####
+  # Write your show_by_director method here
   def show_by_director
     @movie = Movie.find(params[:id])
     @movies = @movie.others_by_same_director
@@ -56,3 +56,4 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date, :director)
   end
+end

@@ -1,4 +1,3 @@
-
 Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     Movie.create movie
@@ -24,3 +23,8 @@ Then /I should see all the movies/ do
   end
 end
 
+Then /the director of "(.*)" should be "(.*)"/ do |title, director|
+  movie = Movie.find_by!(title: title)
+  movie_director = movie.director
+  expect(movie_director).to eq(director)
+end
